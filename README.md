@@ -7,6 +7,7 @@ CodeLab+ is a full-stack MERN learning platform inspired by structured coding ac
 - Structured course paths (HTML/CSS/JavaScript)
 - Live coding environment with Monaco editor and preview iframe
 - Lesson completion, exercise validation, and course quiz support
+- AI Tutor for course-relevant Q&A grounded in platform content
 - XP, levels, badges, and leaderboard progression
 - Admin dashboard for managing courses, lessons, exercises, quizzes, and users
 - JWT access + httpOnly refresh token authentication flow
@@ -62,6 +63,9 @@ REFRESH_TOKEN_SECRET=your_refresh_secret_here
 REFRESH_TOKEN_EXPIRES_IN=7d
 NODE_ENV=development
 CLIENT_URL=http://localhost:5173
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-4o-mini
+OPENAI_BASE_URL=https://api.openai.com/v1
 ```
 
 ### Client
@@ -158,6 +162,7 @@ npm run dev
 - `/dashboard`
 - `/courses/:slug`
 - `/courses/:slug/:lessonSlug`
+- `/assistant`
 - `/profile`
 - `/leaderboard`
 
@@ -226,6 +231,10 @@ npm run dev
 - `GET /api/users/admin/stats` (admin)
 - `GET /api/users?page=1` (admin, paginated)
 - `DELETE /api/users/:id` (admin)
+
+### AI
+
+- `POST /api/ai/ask` (protected)
 
 ## Security and Validation Notes
 

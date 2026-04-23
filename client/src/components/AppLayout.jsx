@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { Menu, Trophy, User, LayoutDashboard, BookOpen, Shield } from 'lucide-react';
+import { Menu, Trophy, User, LayoutDashboard, BookOpen, Shield, Sparkles } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/courses', label: 'Courses', icon: BookOpen },
+  { to: '/assistant', label: 'AI Tutor', icon: Sparkles },
   { to: '/leaderboard', label: 'Leaderboard', icon: Trophy },
   { to: '/profile', label: 'Profile', icon: User },
 ];

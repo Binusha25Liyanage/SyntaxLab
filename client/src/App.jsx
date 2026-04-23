@@ -11,6 +11,7 @@ import CourseDetailPage from './pages/CourseDetailPage';
 import LessonPage from './pages/LessonPage';
 import ProfilePage from './pages/ProfilePage';
 import LeaderboardPage from './pages/LeaderboardPage';
+import AiTutorPage from './pages/AiTutorPage';
 import AdminDashboardPage from './pages/admin/AdminDashboardPage';
 import AdminCoursesPage from './pages/admin/AdminCoursesPage';
 import CourseFormPage from './pages/admin/CourseFormPage';
@@ -50,6 +51,7 @@ export default function App() {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/courses/:slug" element={<CourseDetailPage />} />
             <Route path="/courses/:slug/:lessonSlug" element={<LessonPage />} />
+            <Route path="/assistant" element={<AiTutorPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
 
