@@ -19,127 +19,141 @@ import ExerciseFormPage from './pages/admin/ExerciseFormPage';
 import AdminQuizzesPage from './pages/admin/AdminQuizzesPage';
 import QuizFormPage from './pages/admin/QuizFormPage';
 import AdminUsersPage from './pages/admin/AdminUsersPage';
+import Aurora from './components/Aurora';
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/courses" element={<CoursesPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-70">
+        <Aurora
+          colorStops={['#8E0D17', '#C1121F', '#E8E8E8']}
+          speed={0.45}
+          blend={0.6}
+          amplitude={0.9}
+        />
+      </div>
 
-      <Route
-        element={
-          <ProtectedRoute>
-            <AppLayout />
-          </ProtectedRoute>
-        }
-      >
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/courses/:slug" element={<CourseDetailPage />} />
-        <Route path="/courses/:slug/:lessonSlug" element={<LessonPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/leaderboard" element={<LeaderboardPage />} />
+      <div className="relative z-10">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-        <Route
-          path="/admin/dashboard"
-          element={
-            <AdminRoute>
-              <AdminDashboardPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/courses"
-          element={
-            <AdminRoute>
-              <AdminCoursesPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/courses/new"
-          element={
-            <AdminRoute>
-              <CourseFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/courses/:id/edit"
-          element={
-            <AdminRoute>
-              <CourseFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/lessons/new"
-          element={
-            <AdminRoute>
-              <LessonFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/lessons/:id/edit"
-          element={
-            <AdminRoute>
-              <LessonFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/exercises/new"
-          element={
-            <AdminRoute>
-              <ExerciseFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/exercises/:id/edit"
-          element={
-            <AdminRoute>
-              <ExerciseFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/quizzes"
-          element={
-            <AdminRoute>
-              <AdminQuizzesPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/quizzes/new"
-          element={
-            <AdminRoute>
-              <QuizFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/quizzes/:id/edit"
-          element={
-            <AdminRoute>
-              <QuizFormPage />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/users"
-          element={
-            <AdminRoute>
-              <AdminUsersPage />
-            </AdminRoute>
-          }
-        />
-      </Route>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/courses/:slug" element={<CourseDetailPage />} />
+            <Route path="/courses/:slug/:lessonSlug" element={<LessonPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
 
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+            <Route
+              path="/admin/dashboard"
+              element={
+                <AdminRoute>
+                  <AdminDashboardPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/courses"
+              element={
+                <AdminRoute>
+                  <AdminCoursesPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/courses/new"
+              element={
+                <AdminRoute>
+                  <CourseFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/courses/:id/edit"
+              element={
+                <AdminRoute>
+                  <CourseFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/lessons/new"
+              element={
+                <AdminRoute>
+                  <LessonFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/lessons/:id/edit"
+              element={
+                <AdminRoute>
+                  <LessonFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/exercises/new"
+              element={
+                <AdminRoute>
+                  <ExerciseFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/exercises/:id/edit"
+              element={
+                <AdminRoute>
+                  <ExerciseFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/quizzes"
+              element={
+                <AdminRoute>
+                  <AdminQuizzesPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/quizzes/new"
+              element={
+                <AdminRoute>
+                  <QuizFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/quizzes/:id/edit"
+              element={
+                <AdminRoute>
+                  <QuizFormPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/users"
+              element={
+                <AdminRoute>
+                  <AdminUsersPage />
+                </AdminRoute>
+              }
+            />
+          </Route>
+
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </div>
   );
 }

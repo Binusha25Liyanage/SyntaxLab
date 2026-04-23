@@ -3,15 +3,8 @@ import { motion } from 'framer-motion';
 
 export default function LandingPage() {
   return (
-    <div
-      className="relative overflow-hidden bg-bg-base"
-      style={{
-        backgroundImage:
-          'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
-        backgroundSize: '32px 32px',
-      }}
-    >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(193,18,31,0.18),transparent_28%),radial-gradient(circle_at_85%_25%,rgba(255,255,255,0.06),transparent_24%)]" />
+    <div className="relative overflow-hidden bg-transparent">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-70" />
       <section className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-center px-6 py-20 md:px-8">
         <div className="max-w-[720px]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500 fade-up">Precision engineering meets bold academia</p>
