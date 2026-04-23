@@ -128,13 +128,10 @@ npm run dev
 
 ## Demo Login Credentials
 
-- Admin
-   - Email: <admin@codelab.com>
-   - Password: Admin@123
-
-- User
-   - Email: <user@codelab.com>
-   - Password: User@123
+- Admin Email: <admin@codelab.com>
+- Admin Password: Admin@123
+- User Email: <user@codelab.com>
+- User Password: User@123
 
 ## Admin Access
 
