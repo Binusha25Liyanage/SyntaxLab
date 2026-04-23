@@ -62,15 +62,16 @@ export default function ExerciseFormPage() {
   };
 
   return (
-    <form onSubmit={submit} className="glass max-w-3xl space-y-3 rounded-2xl p-6">
-      <h1 className="text-2xl font-bold">{id ? 'Edit Exercise' : 'New Exercise'}</h1>
-      <input className="w-full rounded-lg border px-3 py-2" placeholder="Lesson ID" value={form.lessonId} onChange={(e) => setForm({ ...form, lessonId: e.target.value })} />
-      <input className="w-full rounded-lg border px-3 py-2" placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
-      <textarea className="w-full rounded-lg border px-3 py-2" placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
-      <textarea className="w-full rounded-lg border px-3 py-2" placeholder="Starter code" value={form.starterCode} onChange={(e) => setForm({ ...form, starterCode: e.target.value })} />
-      <textarea className="w-full rounded-lg border px-3 py-2" placeholder="Solution code" value={form.solutionCode} onChange={(e) => setForm({ ...form, solutionCode: e.target.value })} />
-      <input className="w-full rounded-lg border px-3 py-2" placeholder="Validation rules comma separated" value={form.validationRules} onChange={(e) => setForm({ ...form, validationRules: e.target.value })} />
-      <button className="rounded-lg bg-indigo-500 px-4 py-2 text-white">{id ? 'Update Exercise' : 'Create Exercise'}</button>
+    <form onSubmit={submit} className="panel max-w-3xl space-y-3 rounded-[12px] p-6">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">Admin form</p>
+      <h1 className="font-display text-[36px] font-bold text-mercury-50">{id ? 'Edit Exercise' : 'New Exercise'}</h1>
+      <input className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none" placeholder="Lesson ID" value={form.lessonId} onChange={(e) => setForm({ ...form, lessonId: e.target.value })} />
+      <input className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none" placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
+      <textarea className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none" placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+      <textarea className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none" placeholder="Starter code" value={form.starterCode} onChange={(e) => setForm({ ...form, starterCode: e.target.value })} />
+      <textarea className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none" placeholder="Solution code" value={form.solutionCode} onChange={(e) => setForm({ ...form, solutionCode: e.target.value })} />
+      <input className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none" placeholder="Validation rules comma separated" value={form.validationRules} onChange={(e) => setForm({ ...form, validationRules: e.target.value })} />
+      <button className="pressable rounded-[10px] bg-cherry-500 px-4 py-3 text-[14px] font-semibold text-white transition hover:bg-cherry-700">{id ? 'Update Exercise' : 'Create Exercise'}</button>
     </form>
   );
 }
