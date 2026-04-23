@@ -5,6 +5,7 @@ const User = require('./models/User');
 const Course = require('./models/Course');
 const Lesson = require('./models/Lesson');
 const Exercise = require('./models/Exercise');
+const Quiz = require('./models/Quiz');
 
 const htmlLessons = [
   {
@@ -85,6 +86,7 @@ const mkExercise = (lessonId, title, description, starterCode, solutionCode, val
       Course.deleteMany({}),
       Lesson.deleteMany({}),
       Exercise.deleteMany({}),
+      Quiz.deleteMany({}),
     ]);
 
     const adminPassword = await bcrypt.hash('Admin@123', 10);
@@ -192,6 +194,31 @@ const mkExercise = (lessonId, title, description, starterCode, solutionCode, val
     ];
 
     await Exercise.insertMany(exercises);
+
+    const quizzes = [
+      {
+        courseId: htmlCourse._id,
+        question: 'Which tag defines the main heading of a page?',
+        options: ['<p>', '<h1>', '<title>', '<section>'],
+        correctIndex: 1,
+        explanation: 'The <h1> tag is used for the main heading on a page.',
+        order: 1,
+        xpReward: 15,
+        isPublished: true,
+      },
+      {
+        courseId: jsCourse._id,
+        question: 'Which keyword creates a block-scoped variable?',
+        options: ['var', 'const', 'let', 'function'],
+        correctIndex: 2,
+        explanation: 'let creates a block-scoped variable and is mutable.',
+        order: 1,
+        xpReward: 15,
+        isPublished: true,
+      },
+    ];
+
+    await Quiz.insertMany(quizzes);
 
     console.log('Seed complete');
     process.exit(0);

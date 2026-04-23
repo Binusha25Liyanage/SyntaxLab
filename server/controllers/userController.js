@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Course = require('../models/Course');
 const Lesson = require('../models/Lesson');
+const Quiz = require('../models/Quiz');
 const asyncHandler = require('../middleware/asyncHandler');
 const { evaluateTopTenBadge } = require('../utils/gamification');
 
@@ -8,7 +9,8 @@ const getMe = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id)
     .select('-password -refreshToken')
     .populate('completedLessons', 'title slug courseId')
-    .populate('completedExercises', 'title lessonId');
+    .populate('completedExercises', 'title lessonId')
+    .populate('completedQuizzes', 'question courseId');
 
   await evaluateTopTenBadge(user);
   await user.save();
@@ -63,6 +65,7 @@ const getAdminStats = asyncHandler(async (req, res) => {
     Course.countDocuments(),
     Lesson.countDocuments(),
   ]);
+  const quizCount = await Quiz.countDocuments();
 
   const completionStats = await User.aggregate([
     {
@@ -82,6 +85,7 @@ const getAdminStats = asyncHandler(async (req, res) => {
     userCount,
     courseCount,
     lessonCount,
+    quizCount,
     totalCompletedLessons: completionStats[0]?.totalCompletedLessons || 0,
   });
 });

@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema(
     badges: [badgeSchema],
     completedLessons: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Lesson' }],
     completedExercises: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Exercise' }],
+    completedQuizzes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Quiz' }],
     refreshToken: { type: String, default: null },
   },
   { timestamps: { createdAt: true, updatedAt: true } }
