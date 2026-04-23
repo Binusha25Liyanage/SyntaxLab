@@ -7,7 +7,7 @@ import SkeletonCard from '../components/SkeletonCard';
 
 export default function CourseDetailPage() {
   const { slug } = useParams();
-  const { user } = useAuth();
+  const { user, refreshProfile } = useAuth();
   const [course, setCourse] = useState(null);
   const [quizzes, setQuizzes] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -57,6 +57,7 @@ export default function CourseDetailPage() {
         },
       }));
       toast.success(`Quiz passed! +${res.data.xpGained} XP`);
+      await refreshProfile();
     } catch (error) {
       const message = error.response?.data?.message || 'Quiz submission failed';
       setQuizFeedback((prev) => ({

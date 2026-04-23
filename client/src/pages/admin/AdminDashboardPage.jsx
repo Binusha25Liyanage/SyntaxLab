@@ -82,7 +82,7 @@ export default function AdminDashboardPage() {
         </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-4">
+      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         <article className="panel rounded-2xl p-5">
           <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-mercury-700">Users</p>
           <p className="mt-2 font-display text-[32px] font-bold text-mercury-50">{stats.userCount}</p>
