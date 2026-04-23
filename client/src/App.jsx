@@ -16,6 +16,8 @@ import AdminCoursesPage from './pages/admin/AdminCoursesPage';
 import CourseFormPage from './pages/admin/CourseFormPage';
 import LessonFormPage from './pages/admin/LessonFormPage';
 import ExerciseFormPage from './pages/admin/ExerciseFormPage';
+import AdminQuizzesPage from './pages/admin/AdminQuizzesPage';
+import QuizFormPage from './pages/admin/QuizFormPage';
 import AdminUsersPage from './pages/admin/AdminUsersPage';
 
 export default function App() {
@@ -100,6 +102,30 @@ export default function App() {
           element={
             <AdminRoute>
               <ExerciseFormPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/quizzes"
+          element={
+            <AdminRoute>
+              <AdminQuizzesPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/quizzes/new"
+          element={
+            <AdminRoute>
+              <QuizFormPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/quizzes/:id/edit"
+          element={
+            <AdminRoute>
+              <QuizFormPage />
             </AdminRoute>
           }
         />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookPlus, FileText, Users, ClipboardList, ShieldCheck, Layers3 } from 'lucide-react';
+import { BookPlus, FileText, Users, ClipboardList, ShieldCheck, Layers3, BadgePlus } from 'lucide-react';
 import { api } from '../../utils/api';
 
 export default function AdminDashboardPage() {
@@ -38,6 +38,12 @@ export default function AdminDashboardPage() {
       icon: ClipboardList,
     },
     {
+      title: 'Create Quiz',
+      description: 'Add course quizzes with multiple-choice answers and XP rewards.',
+      to: '/admin/quizzes/new',
+      icon: BadgePlus,
+    },
+    {
       title: 'Manage Users',
       description: 'Review learner roles, XP, and remove accounts when necessary.',
       to: '/admin/users',
@@ -50,6 +56,8 @@ export default function AdminDashboardPage() {
     { label: 'Open Course creator', to: '/admin/courses/new' },
     { label: 'Open Lesson creator', to: '/admin/lessons/new' },
     { label: 'Open Exercise creator', to: '/admin/exercises/new' },
+    { label: 'Open Quiz creator', to: '/admin/quizzes/new' },
+    { label: 'Open Quizzes list', to: '/admin/quizzes' },
     { label: 'Open Users panel', to: '/admin/users' },
   ];
 
@@ -90,6 +98,10 @@ export default function AdminDashboardPage() {
         <article className="panel rounded-2xl p-5">
           <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-mercury-700">Completed Lessons</p>
           <p className="mt-2 font-display text-[32px] font-bold text-mercury-50">{stats.totalCompletedLessons}</p>
+        </article>
+        <article className="panel rounded-2xl p-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-mercury-700">Quizzes</p>
+          <p className="mt-2 font-display text-[32px] font-bold text-mercury-50">{stats.quizCount || 0}</p>
         </article>
       </section>
 
