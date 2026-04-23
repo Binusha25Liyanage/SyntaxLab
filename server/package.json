@@ -1,5 +1,5 @@
 {
-  "name": "codelab-plus-server",
+  "name": "syntaxlab-plus-server",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "codelab-plus": "file:..",
+    "syntaxlab-plus": "file:..",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

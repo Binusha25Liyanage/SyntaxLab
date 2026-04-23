@@ -31,7 +31,7 @@ export default function AppLayout() {
           <Menu size={18} />
         </button>
         <span className="font-display text-[20px] font-bold tracking-tight text-mercury-100">
-          CodeLab<span className="text-cherry-500">+</span>
+          SyntaxLab<span className="text-cherry-500">+</span>
         </span>
       </div>
 
@@ -43,7 +43,7 @@ export default function AppLayout() {
         >
           <div className="p-6">
             <Link to="/" className="font-display text-[20px] font-bold tracking-tight text-mercury-100">
-              CodeLab<span className="text-cherry-500">+</span>
+              SyntaxLab<span className="text-cherry-500">+</span>
             </Link>
             <div className="panel mt-6 rounded-xl p-4">
               <div className="flex items-center gap-3">

@@ -13,7 +13,7 @@ const htmlLessons = [
     slug: 'introduction-to-html',
     content:
       '# Introduction to HTML\n\nHTML gives structure to web pages. A document usually starts with `<!doctype html>`, then has `<html>`, `<head>`, and `<body>` tags.',
-    codeExample: '<!doctype html>\n<html>\n  <head>\n    <title>My Page</title>\n  </head>\n  <body>\n    <h1>Hello CodeLab+</h1>\n  </body>\n</html>',
+    codeExample: '<!doctype html>\n<html>\n  <head>\n    <title>My Page</title>\n  </head>\n  <body>\n    <h1>Hello SyntaxLab+</h1>\n  </body>\n</html>',
     language: 'html',
     order: 1,
   },
@@ -43,7 +43,7 @@ const jsLessons = [
     slug: 'variables-and-data-types',
     content:
       '# Variables and Data Types\n\nJavaScript supports `var`, `let`, and `const`. Prefer `const` by default and `let` when values change.',
-    codeExample: "const name = 'CodeLab';\nlet xp = 0;\nconst isActive = true;",
+    codeExample: "const name = 'SyntaxLab';\nlet xp = 0;\nconst isActive = true;",
     language: 'javascript',
     order: 1,
   },
@@ -95,13 +95,13 @@ const mkExercise = (lessonId, title, description, starterCode, solutionCode, val
     await User.insertMany([
       {
         username: 'admin',
-        email: 'admin@codelab.com',
+        email: 'admin@syntaxlab.com',
         password: adminPassword,
         role: 'admin',
       },
       {
         username: 'demo_user',
-        email: 'user@codelab.com',
+        email: 'user@syntaxlab.com',
         password: userPassword,
         role: 'user',
       },

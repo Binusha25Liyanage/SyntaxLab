@@ -9,7 +9,7 @@ export default function AiTutorPage() {
     {
       role: 'assistant',
       content:
-        'Ask me anything about your CodeLab+ lessons, exercises, quizzes, HTML, CSS, or JavaScript learning path.',
+        'Ask me anything about your SyntaxLab+ lessons, exercises, quizzes, HTML, CSS, or JavaScript learning path.',
     },
   ]);
 
@@ -46,7 +46,7 @@ export default function AiTutorPage() {
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">AI tutor</p>
         <h1 className="mt-2 font-display text-[36px] font-bold text-mercury-50">Learning Assistant</h1>
         <p className="mt-2 max-w-2xl text-[15px] leading-7 text-mercury-500">
-          Ask course-related questions and get guidance grounded in CodeLab+ lessons, exercises, and quizzes.
+          Ask course-related questions and get guidance grounded in SyntaxLab+ lessons, exercises, and quizzes.
         </p>
       </section>
 

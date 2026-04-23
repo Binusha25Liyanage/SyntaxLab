@@ -1,6 +1,6 @@
-# CodeLab+
+# SyntaxLab+
 
-CodeLab+ is a full-stack MERN learning platform inspired by structured coding academies. It includes lesson-based learning, a Monaco-powered live editor with preview, exercise and quiz validation, XP progression, badges, leaderboards, and an admin control panel for content operations.
+SyntaxLab+ is a full-stack MERN learning platform inspired by structured coding academies. It includes lesson-based learning, a Monaco-powered live editor with preview, exercise and quiz validation, XP progression, badges, leaderboards, and an admin control panel for content operations.
 
 ## Highlights
 
@@ -46,7 +46,7 @@ SyntaxLab/
 ## Prerequisites
 
 - Node.js 18+
-- MongoDB running locally (default: mongodb://localhost:27017/codelab)
+- MongoDB running locally (default: mongodb://localhost:27017/syntaxlab)
 
 ## Environment Setup
 
@@ -56,7 +56,7 @@ Copy `server/.env.example` to `server/.env`:
 
 ```dotenv
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/codelab
+MONGODB_URI=mongodb://localhost:27017/syntaxlab
 JWT_SECRET=your_jwt_secret_here
 JWT_EXPIRES_IN=15m
 REFRESH_TOKEN_SECRET=your_refresh_secret_here
@@ -132,9 +132,9 @@ npm run dev
 
 ## Demo Login Credentials
 
-- Admin Email: <admin@codelab.com>
+- Admin Email: <admin@syntaxlab.com>
 - Admin Password: Admin@123
-- User Email: <user@codelab.com>
+- User Email: <user@syntaxlab.com>
 - User Password: User@123
 
 ## Admin Access

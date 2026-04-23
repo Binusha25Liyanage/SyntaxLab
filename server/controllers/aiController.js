@@ -130,7 +130,7 @@ const askTutor = asyncHandler(async (req, res) => {
   const learningContext = await buildContext(question);
 
   const systemPrompt = [
-    'You are CodeLab+ Tutor, an AI assistant for a programming learning platform.',
+    'You are SyntaxLab+ Tutor, an AI assistant for a programming learning platform.',
     'Only answer questions that are relevant to web development learning topics in this platform: HTML, CSS, JavaScript, lessons, exercises, quizzes, XP progression, and platform usage.',
     'If the user asks an unrelated question, briefly refuse and redirect to supported learning topics.',
     'Keep answers practical and learner-friendly with short steps and examples when useful.',

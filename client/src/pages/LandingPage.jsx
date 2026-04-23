@@ -22,7 +22,7 @@ export default function LandingPage() {
           transition={{ delay: 0.1 }}
             className="mt-6 max-w-[480px] text-[16px] leading-7 text-mercury-500"
         >
-          CodeLab+ pairs structured lessons with a live editor, immediate validation, and a rigorous learning path built to produce real output.
+          SyntaxLab+ pairs structured lessons with a live editor, immediate validation, and a rigorous learning path built to produce real output.
         </motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="mt-8 flex flex-wrap gap-3">
           <Link to="/courses" className="pressable rounded-[10px] bg-cherry-500 px-7 py-3 text-[14px] font-semibold text-white transition hover:bg-cherry-700">

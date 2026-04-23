@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "codelab-plus-server": "file:.."
+    "syntaxlab-plus-server": "file:.."
   }
 }
