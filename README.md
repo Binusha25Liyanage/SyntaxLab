@@ -24,8 +24,8 @@ CodeLab+ is a MERN learning platform with structured programming lessons, Monaco
 
 ## Demo Credentials
 
-- Admin: admin@codelab.com / Admin@123
-- User: user@codelab.com / User@123
+- Admin: <admin@codelab.com> / Admin@123
+- User: <user@codelab.com> / User@123
 
 ## API Highlights
 
