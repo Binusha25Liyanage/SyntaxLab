@@ -22,7 +22,7 @@ CodeLab+ is a full-stack MERN learning platform inspired by structured coding ac
 
 ## Project Structure
 
-```
+```text
 SyntaxLab/
    client/
       src/
@@ -53,7 +53,7 @@ SyntaxLab/
 
 Copy `server/.env.example` to `server/.env`:
 
-```
+```dotenv
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/codelab
 JWT_SECRET=your_jwt_secret_here
@@ -68,7 +68,7 @@ CLIENT_URL=http://localhost:5173
 
 Copy `client/.env.example` to `client/.env`:
 
-```
+```dotenv
 VITE_API_URL=http://localhost:5000/api
 ```
 
@@ -123,17 +123,17 @@ npm run dev
 
 ## URLs
 
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000/api
+- Frontend: <http://localhost:5173>
+- Backend API: <http://localhost:5000/api>
 
 ## Demo Login Credentials
 
 - Admin
-   - Email: admin@codelab.com
+   - Email: <admin@codelab.com>
    - Password: Admin@123
 
 - User
-   - Email: user@codelab.com
+   - Email: <user@codelab.com>
    - Password: User@123
 
 ## Admin Access
@@ -141,11 +141,11 @@ npm run dev
 1. Login using admin credentials.
 2. Navigate to: `http://localhost:5173/admin/dashboard`
 3. Admin services available:
-    - Manage courses
-    - Create/edit lessons
-    - Create/edit exercises
-    - Create/edit quizzes
-    - Manage users
+   - Manage courses
+   - Create/edit lessons
+   - Create/edit exercises
+   - Create/edit quizzes
+   - Manage users
 
 ## Frontend Pages
 
@@ -261,13 +261,13 @@ npm run dev
 - `npm run dev` -> run server + client concurrently
 - `npm run seed` -> run server seed script
 
-### Server
+### Server Scripts
 
 - `npm run dev` -> start nodemon server
 - `npm run start` -> start production-like server
 - `npm run seed` -> seed database
 
-### Client
+### Client Scripts
 
 - `npm run dev` -> start Vite dev server
 - `npm run build` -> production build
