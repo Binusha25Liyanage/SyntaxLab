@@ -35,6 +35,16 @@ const getExercisesByLesson = asyncHandler(async (req, res) => {
   res.json(exercises);
 });
 
+const getExerciseById = asyncHandler(async (req, res) => {
+  const exercise = await Exercise.findById(req.params.id);
+  if (!exercise) {
+    const err = new Error('Exercise not found');
+    err.statusCode = 404;
+    throw err;
+  }
+  res.json(exercise);
+});
+
 const createExercise = asyncHandler(async (req, res) => {
   const exercise = await Exercise.create(req.body);
   res.status(201).json({ ...exercise.toObject(), solutionCode: undefined });
@@ -111,6 +121,7 @@ const submitExercise = asyncHandler(async (req, res) => {
 
 module.exports = {
   getExercisesByLesson,
+  getExerciseById,
   submitExercise,
   createExercise,
   updateExercise,
