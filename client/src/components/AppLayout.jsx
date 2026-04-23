@@ -16,32 +16,51 @@ export default function AppLayout() {
 
   const level = Math.floor((user?.xp || 0) / 100) + 1;
   const progress = (user?.xp || 0) % 100;
+  const initials = (user?.username || 'U')
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
-      <div className="fixed left-0 top-0 z-50 flex h-16 w-full items-center justify-between border-b border-slate-200 bg-white px-4 dark:border-slate-800 dark:bg-slate-900 md:hidden">
-        <button onClick={() => setOpen((v) => !v)} className="rounded-lg border p-2">
+    <div className="app-shell min-h-screen">
+      <div className="nav-shell fixed left-0 top-0 z-50 flex h-14 w-full items-center justify-between px-4 md:hidden">
+        <button onClick={() => setOpen((v) => !v)} className="pressable rounded-lg border border-white/10 bg-white/5 p-2 text-mercury-50">
           <Menu size={18} />
         </button>
-        <span className="font-semibold text-indigo-600">CodeLab+</span>
+        <span className="font-display text-[20px] font-bold tracking-tight text-mercury-100">
+          CodeLab<span className="text-cherry-500">+</span>
+        </span>
       </div>
 
       <div className="flex">
         <aside
-          className={`fixed z-40 h-screen w-72 bg-navy text-white transition-transform md:translate-x-0 ${
+          className={`sidebar-shell fixed z-40 h-screen w-60 text-mercury-50 transition-transform md:translate-x-0 ${
             open ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
           <div className="p-6">
-            <Link to="/" className="text-2xl font-bold tracking-tight text-indigo-300">
-              CodeLab+
+            <Link to="/" className="font-display text-[20px] font-bold tracking-tight text-mercury-100">
+              CodeLab<span className="text-cherry-500">+</span>
             </Link>
-            <div className="mt-6 rounded-xl bg-slate-800 p-4">
-              <p className="text-sm text-slate-300">Level {level}</p>
-              <div className="mt-2 h-2 rounded-full bg-slate-700">
-                <div className="h-full rounded-full bg-indigo-500" style={{ width: `${progress}%` }} />
+            <div className="panel mt-6 rounded-xl p-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cherry-500 font-display text-sm font-bold text-white">
+                  {initials}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-mercury-50">{user?.username}</p>
+                  <p className="text-xs uppercase tracking-[0.12em] text-mercury-700">Level {level}</p>
+                </div>
               </div>
-              <p className="mt-2 text-xs text-slate-400">{user?.xp || 0} XP</p>
+              <div className="mt-4 h-1.5 rounded-full bg-bg-overlay">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-cherry-500 to-[#E84040] transition-all duration-500"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+              <p className="mt-2 text-xs text-mercury-700">{user?.xp || 0} XP</p>
             </div>
           </div>
 
@@ -52,8 +71,10 @@ export default function AppLayout() {
                 to={item.to}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition ${
-                    isActive ? 'bg-indigo-600 text-white' : 'text-slate-200 hover:bg-slate-800'
+                  `flex items-center gap-3 border-l-2 px-3 py-2 text-[14px] font-medium transition-all duration-200 ${
+                    isActive
+                      ? 'border-cherry-500 bg-[rgba(193,18,31,0.15)] text-cherry-500'
+                      : 'border-transparent text-mercury-500 hover:bg-[rgba(193,18,31,0.08)] hover:text-mercury-50'
                   }`
                 }
               >
@@ -66,8 +87,10 @@ export default function AppLayout() {
                 to="/admin/dashboard"
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition ${
-                    isActive ? 'bg-indigo-600 text-white' : 'text-slate-200 hover:bg-slate-800'
+                  `flex items-center gap-3 border-l-2 px-3 py-2 text-[14px] font-medium transition-all duration-200 ${
+                    isActive
+                      ? 'border-cherry-500 bg-[rgba(193,18,31,0.15)] text-cherry-500'
+                      : 'border-transparent text-mercury-500 hover:bg-[rgba(193,18,31,0.08)] hover:text-mercury-50'
                   }`
                 }
               >
@@ -78,13 +101,13 @@ export default function AppLayout() {
           </nav>
 
           <div className="absolute bottom-6 left-4 right-4">
-            <button onClick={logout} className="w-full rounded-xl bg-slate-800 px-3 py-2 text-sm hover:bg-slate-700">
+            <button onClick={logout} className="pressable w-full rounded-lg border border-white/10 bg-bg-elevated px-3 py-2 text-sm text-mercury-50 transition hover:border-cherry-500/40 hover:bg-cherry-700">
               Logout
             </button>
           </div>
         </aside>
 
-        <main className="min-h-screen flex-1 px-4 pb-8 pt-20 md:ml-72 md:px-8 md:pt-8">
+        <main className="min-h-screen flex-1 px-4 pb-8 pt-20 md:ml-60 md:px-8 md:pt-8">
           <Outlet />
         </main>
       </div>

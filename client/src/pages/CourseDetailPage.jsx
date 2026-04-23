@@ -48,13 +48,14 @@ export default function CourseDetailPage() {
 
   return (
     <div className="space-y-6">
-      <section className="glass rounded-2xl p-6">
-        <h1 className="text-3xl font-bold">{course.title}</h1>
-        <p className="mt-2 text-slate-600 dark:text-slate-300">{course.description}</p>
-        <div className="mt-4 h-2 rounded-full bg-slate-200 dark:bg-slate-700">
-          <div className="h-full rounded-full bg-indigo-500" style={{ width: `${progress}%` }} />
+      <section className="panel rounded-2xl p-6">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">Course overview</p>
+        <h1 className="mt-2 font-display text-[36px] font-bold text-mercury-50">{course.title}</h1>
+        <p className="mt-2 max-w-2xl text-[15px] leading-7 text-mercury-500">{course.description}</p>
+        <div className="mt-5 h-1.5 rounded-full bg-bg-overlay">
+          <div className="h-full rounded-full bg-gradient-to-r from-cherry-500 to-[#E84040] transition-all duration-500" style={{ width: `${progress}%` }} />
         </div>
-        <p className="mt-2 text-sm text-slate-500">Course progress: {progress}%</p>
+        <p className="mt-2 text-[12px] text-mercury-700">Course progress: {progress}%</p>
       </section>
 
       <section className="grid gap-3">
@@ -62,10 +63,10 @@ export default function CourseDetailPage() {
           <Link
             key={lesson._id}
             to={`/courses/${course.slug}/${lesson.slug}`}
-            className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900"
+            className="flex items-center justify-between rounded-[12px] border border-white/6 bg-bg-surface px-4 py-3 transition hover:border-[rgba(193,18,31,0.4)] hover:bg-[rgba(193,18,31,0.05)]"
           >
-            <span>{lesson.title}</span>
-            {completedLessonSet.has(lesson._id) && <span className="text-sm text-green-600">Completed</span>}
+            <span className="text-[15px] text-mercury-50">{lesson.title}</span>
+            {completedLessonSet.has(lesson._id) && <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-success">Completed</span>}
           </Link>
         ))}
       </section>

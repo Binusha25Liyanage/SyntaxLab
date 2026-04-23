@@ -23,37 +23,38 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md items-center px-4">
-      <form onSubmit={onSubmit} className="glass w-full rounded-2xl p-6 shadow-soft">
-        <h1 className="text-2xl font-semibold">Create account</h1>
-        <div className="mt-4 space-y-3">
+    <div className="mx-auto flex min-h-screen max-w-md items-center px-4 py-8">
+      <form onSubmit={onSubmit} className="panel w-full rounded-[12px] p-6">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">Join</p>
+        <h1 className="mt-2 font-display text-[36px] font-bold text-mercury-50">Create account</h1>
+        <div className="mt-6 space-y-3">
           <input
             type="text"
             placeholder="Username"
-            className="w-full rounded-xl border px-3 py-2"
+            className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none"
             value={form.username}
             onChange={(e) => setForm({ ...form, username: e.target.value })}
           />
           <input
             type="email"
             placeholder="Email"
-            className="w-full rounded-xl border px-3 py-2"
+            className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
           <input
             type="password"
             placeholder="Password"
-            className="w-full rounded-xl border px-3 py-2"
+            className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
         </div>
-        <button disabled={loading} className="mt-4 w-full rounded-xl bg-indigo-500 py-2 font-medium text-white">
+        <button disabled={loading} className="pressable mt-5 w-full rounded-[10px] bg-cherry-500 py-3 text-[14px] font-semibold text-white transition hover:bg-cherry-700">
           {loading ? 'Creating...' : 'Register'}
         </button>
-        <p className="mt-3 text-sm">
-          Already have an account? <Link to="/login" className="text-indigo-600">Login</Link>
+        <p className="mt-3 text-[14px] text-mercury-500">
+          Already have an account? <Link to="/login" className="text-cherry-500">Login</Link>
         </p>
       </form>
     </div>

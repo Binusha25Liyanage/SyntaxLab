@@ -25,30 +25,31 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md items-center px-4">
-      <form onSubmit={onSubmit} className="glass w-full rounded-2xl p-6 shadow-soft">
-        <h1 className="text-2xl font-semibold">Login</h1>
-        <div className="mt-4 space-y-3">
+    <div className="mx-auto flex min-h-screen max-w-md items-center px-4 py-8">
+      <form onSubmit={onSubmit} className="panel w-full rounded-[12px] p-6">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">Access</p>
+        <h1 className="mt-2 font-display text-[36px] font-bold text-mercury-50">Login</h1>
+        <div className="mt-6 space-y-3">
           <input
             type="email"
             placeholder="Email"
-            className="w-full rounded-xl border px-3 py-2"
+            className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
           <input
             type="password"
             placeholder="Password"
-            className="w-full rounded-xl border px-3 py-2"
+            className="field-dark w-full rounded-[10px] px-3 py-3 text-[14px] outline-none"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
         </div>
-        <button disabled={loading} className="mt-4 w-full rounded-xl bg-indigo-500 py-2 font-medium text-white">
+        <button disabled={loading} className="pressable mt-5 w-full rounded-[10px] bg-cherry-500 py-3 text-[14px] font-semibold text-white transition hover:bg-cherry-700">
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
-        <p className="mt-3 text-sm">
-          No account? <Link to="/register" className="text-indigo-600">Register</Link>
+        <p className="mt-3 text-[14px] text-mercury-500">
+          No account? <Link to="/register" className="text-cherry-500">Register</Link>
         </p>
       </form>
     </div>

@@ -98,35 +98,44 @@ export default function LessonPage() {
   return (
     <div className="space-y-5">
       {showConfetti && <Confetti recycle={false} numberOfPieces={220} />}
-      <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">{lesson.title}</h1>
-        <button onClick={completeLesson} className="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold text-white">
+      <header className="flex items-center justify-between gap-4">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-mercury-700">Lesson</p>
+          <h1 className="font-display text-[24px] font-bold text-mercury-50">{lesson.title}</h1>
+        </div>
+        <button onClick={completeLesson} className="pressable rounded-[10px] bg-cherry-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cherry-700">
           Mark Complete
         </button>
       </header>
 
-      <section className="grid grid-cols-1 gap-4 xl:grid-cols-5">
-        <article className="glass rounded-2xl p-4 xl:col-span-2">
-          <ReactMarkdown className="prose prose-slate dark:prose-invert max-w-none">{lesson.content}</ReactMarkdown>
+      <section className="grid grid-cols-1 gap-4 xl:grid-cols-[42fr_58fr]">
+        <article className="panel rounded-2xl p-7 xl:p-8">
+          <div className="mb-6 text-[11px] text-mercury-700">
+            <span>{course.title}</span> <span className="px-1">›</span> <span>{lesson.title}</span>
+          </div>
+          <ReactMarkdown className="lesson-copy max-w-none">{lesson.content}</ReactMarkdown>
+          <button onClick={completeLesson} className="pressable mt-6 w-full rounded-[10px] bg-cherry-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-cherry-700">
+            Complete lesson
+          </button>
         </article>
 
-        <article className="glass rounded-2xl p-4 xl:col-span-3">
-          <div className="mb-3 flex items-center justify-between">
+        <article className="editor-frame rounded-2xl">
+          <div className="flex h-10 items-center justify-between border-b border-white/6 bg-[#0A0A0A] px-4">
             <div className="flex gap-2">
               <button
                 onClick={() => setActiveTab('code')}
-                className={`rounded-lg px-3 py-1 text-sm ${activeTab === 'code' ? 'bg-indigo-500 text-white' : 'bg-slate-200 dark:bg-slate-700'}`}
+                className={`rounded-md px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] transition ${activeTab === 'code' ? 'bg-cherry-500 text-white' : 'bg-bg-overlay text-mercury-500'}`}
               >
                 Code
               </button>
               <button
                 onClick={() => setActiveTab('preview')}
-                className={`rounded-lg px-3 py-1 text-sm ${activeTab === 'preview' ? 'bg-indigo-500 text-white' : 'bg-slate-200 dark:bg-slate-700'}`}
+                className={`rounded-md px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] transition ${activeTab === 'preview' ? 'bg-cherry-500 text-white' : 'bg-bg-overlay text-mercury-500'}`}
               >
                 Preview
               </button>
             </div>
-            <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs uppercase text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-200">
+            <span className="rounded-full bg-cherry-500 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-white">
               {lesson.language}
             </span>
           </div>
@@ -134,42 +143,55 @@ export default function LessonPage() {
           {activeTab === 'code' ? (
             <Editor
               height="420px"
-              theme={prefersDark ? 'vs-dark' : 'light'}
+              theme="vs-dark"
               language={lesson.language}
               value={code}
               onChange={(value) => setCode(value || '')}
-              options={{ minimap: { enabled: false }, fontSize: 14 }}
+              options={{ minimap: { enabled: false }, fontSize: 14, fontFamily: 'JetBrains Mono, monospace' }}
             />
           ) : (
             <iframe
               title="preview"
-              className="h-[420px] w-full rounded-xl border border-slate-200 bg-white dark:border-slate-700"
+              className="h-[420px] w-full border-t border-white/6 bg-white"
               sandbox="allow-scripts"
               srcDoc={toSrcDoc(lesson.language, debouncedCode)}
             />
           )}
-        </article>
-      </section>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">Exercises</h2>
-        {exercises.map((exercise) => (
-          <article key={exercise._id} className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
-            <h3 className="font-semibold">{exercise.title}</h3>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{exercise.description}</p>
-            <button
-              onClick={() => submitExercise(exercise._id)}
-              className="mt-3 rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold text-white"
-            >
-              Submit
-            </button>
-            {feedback[exercise._id] && (
-              <p className={`mt-2 text-sm ${feedback[exercise._id].type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
-                {feedback[exercise._id].text}
-              </p>
-            )}
-          </article>
-        ))}
+          <div className="border-t border-white/6 bg-bg-surface px-6 py-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-mercury-700">Exercise</p>
+                <p className="mt-2 text-[14px] text-mercury-500">Complete the task below, validate your code, and earn XP.</p>
+              </div>
+            </div>
+            <div className="mt-4 space-y-4">
+              {exercises.map((exercise) => (
+                <article key={exercise._id} className="rounded-[12px] border border-white/6 bg-bg-elevated p-4">
+                  <h3 className="text-[15px] font-semibold text-mercury-50">{exercise.title}</h3>
+                  <p className="mt-2 text-[14px] leading-7 text-mercury-500">{exercise.description}</p>
+                  <button
+                    onClick={() => submitExercise(exercise._id)}
+                    className="pressable mt-4 rounded-[8px] bg-cherry-500 px-5 py-2 text-[14px] font-semibold text-white transition hover:bg-cherry-700"
+                  >
+                    Submit
+                  </button>
+                  {feedback[exercise._id] && (
+                    <div
+                      className={`mt-3 rounded-[12px] border p-3 text-[14px] ${
+                        feedback[exercise._id].type === 'success'
+                          ? 'border-success bg-[rgba(34,197,94,0.1)] text-success'
+                          : 'border-cherry-500 bg-[rgba(193,18,31,0.1)] text-cherry-200'
+                      }`}
+                    >
+                      {feedback[exercise._id].text}
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </article>
       </section>
     </div>
   );

@@ -14,22 +14,25 @@ export default function LeaderboardPage() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-3xl font-bold">Top Coders</h1>
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
+      <div>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">Top performers</p>
+        <h1 className="mt-2 font-display text-[36px] font-bold text-mercury-50">Leaderboard</h1>
+      </div>
+      <div className="overflow-hidden rounded-[12px] border border-white/6 bg-bg-surface">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 dark:bg-slate-800">
+          <thead className="bg-[#111111]">
             <tr>
-              <th className="px-4 py-3">Rank</th>
-              <th className="px-4 py-3">Username</th>
-              <th className="px-4 py-3">XP</th>
+              <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-mercury-700">Rank</th>
+              <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-mercury-700">Username</th>
+              <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-mercury-700">XP</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row._id} className="border-t border-slate-200 dark:border-slate-700">
-                <td className="px-4 py-3">#{row.rank}</td>
-                <td className="px-4 py-3">{row.username}</td>
-                <td className="px-4 py-3 font-semibold text-indigo-600">{row.xp}</td>
+              <tr key={row._id} className="border-t border-white/4 transition hover:bg-[rgba(193,18,31,0.05)]">
+                <td className="px-4 py-3 text-mercury-500">#{row.rank}</td>
+                <td className="px-4 py-3 text-mercury-50">{row.username}</td>
+                <td className="px-4 py-3 font-semibold text-cherry-500">{row.xp}</td>
               </tr>
             ))}
           </tbody>
