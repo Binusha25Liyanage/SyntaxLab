@@ -87,6 +87,23 @@ npm install --prefix server
 npm install --prefix client
 ```
 
+## Admin Quick Start
+
+1. Seed demo data:
+
+```bash
+npm run seed --prefix server
+```
+
+2. Login with admin account:
+   - Email: <admin@syntaxlab.com>
+   - Password: Admin@123
+3. Open admin dashboard: `http://localhost:5173/admin/dashboard`
+4. Add a new course quickly:
+   - Open `http://localhost:5173/courses`
+   - Click **Add Course** (visible for admin users)
+5. Manage all course content from `http://localhost:5173/admin/courses`
+
 ## Seed Data
 
 ```bash
