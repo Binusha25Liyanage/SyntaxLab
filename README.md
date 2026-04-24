@@ -10,6 +10,7 @@ SyntaxLab+ is a full-stack MERN learning platform inspired by structured coding 
 - AI Tutor for course-relevant Q&A grounded in platform content
 - XP, levels, badges, and leaderboard progression
 - Admin dashboard for managing courses, lessons, exercises, quizzes, and users
+- Admin quick action on the Courses page to add new courses directly
 - JWT access + httpOnly refresh token authentication flow
 
 ## Tech Stack
@@ -147,6 +148,9 @@ npm run dev
    - Create/edit exercises
    - Create/edit quizzes
    - Manage users
+4. Quick course creation:
+   - Open `http://localhost:5173/courses` while logged in as admin.
+   - Click **Add Course** to go directly to the new course form.
 
 ## Frontend Pages
 
@@ -258,6 +262,13 @@ npm run dev
 ### 3) Browser shows 401 on startup
 
 - Expected on public pages when there is no active session.
+
+### 4) Admin login credentials do not work
+
+- Seed data may be missing.
+- Run `npm run seed --prefix server` from the project root to recreate demo users:
+   - Admin: `admin@syntaxlab.com` / `Admin@123`
+   - User: `user@syntaxlab.com` / `User@123`
 - Login to access protected routes.
 
 ## Scripts
