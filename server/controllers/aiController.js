@@ -24,6 +24,24 @@ const scoreText = (text, terms) => {
   return score;
 };
 
+const isPlaceholderApiKey = (value) => {
+  const key = String(value || '').trim();
+  if (!key) return true;
+
+  const lower = key.toLowerCase();
+  const knownPlaceholders = new Set([
+    'your_openai_api_key_here',
+    'sk-your-real-key',
+    'sk-your-****-key',
+    'sk-your-api-key',
+  ]);
+
+  if (knownPlaceholders.has(lower)) return true;
+  if (lower.includes('your') && lower.includes('key')) return true;
+
+  return false;
+};
+
 const buildContext = async (question) => {
   const terms = makeTerms(question);
 
@@ -121,8 +139,10 @@ const askTutor = asyncHandler(async (req, res) => {
   const model = process.env.OPENAI_MODEL || 'gpt-4o-mini';
   const baseUrl = process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1';
 
-  if (!apiKey) {
-    const err = new Error('AI is not configured. Set OPENAI_API_KEY in server/.env');
+  if (isPlaceholderApiKey(apiKey)) {
+    const err = new Error(
+      'AI is not configured with a real API key. Update OPENAI_API_KEY in server/.env and restart the backend server.'
+    );
     err.statusCode = 503;
     throw err;
   }

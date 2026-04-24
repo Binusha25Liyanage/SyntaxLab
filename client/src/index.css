@@ -34,6 +34,17 @@ body {
     linear-gradient(180deg, #0d0d0d 0%, #0b0b0b 100%);
 }
 
+/* Prevent text caret from appearing on non-input elements. */
+*:not(input):not(textarea):not([contenteditable='true']) {
+  caret-color: transparent;
+}
+
+input,
+textarea,
+[contenteditable='true'] {
+  caret-color: auto;
+}
+
 #root {
   min-height: 100vh;
 }
