@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookPlus, FileText, Users, ClipboardList, ShieldCheck, Layers3, BadgePlus } from 'lucide-react';
 import { api } from '../../utils/api';
+import Balatro from '../../components/Balatro';
 
 export default function AdminDashboardPage() {
   const [stats, setStats] = useState(null);
@@ -62,7 +63,24 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="relative -mx-4 -mt-20 min-h-screen overflow-hidden md:-mx-8 md:-mt-8">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-80">
+        <Balatro
+          isRotate={false}
+          mouseInteraction={true}
+          pixelFilter={740}
+          spinSpeed={7.2}
+          spinRotation={-2.1}
+          color1="#C1121F"
+          color2="#A9AFBC"
+          color3="#0A0D12"
+          contrast={3.4}
+          lighting={0.35}
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_10%_7%,rgba(193,18,31,0.28),transparent_50%),radial-gradient(circle_at_90%_4%,rgba(169,175,188,0.18),transparent_42%),linear-gradient(180deg,rgba(4,5,7,0.72),rgba(4,5,7,0.88))]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl space-y-6 px-4 pb-8 pt-20 md:px-8 md:pt-8">
       <section className="panel rounded-[12px] p-6">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
@@ -163,6 +181,7 @@ export default function AdminDashboardPage() {
           </ol>
         </article>
       </section>
+      </div>
     </div>
   );
 }

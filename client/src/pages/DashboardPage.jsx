@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
+import Balatro from '../components/Balatro';
 
 export default function DashboardPage() {
   const { user } = useAuth();
@@ -14,7 +15,24 @@ export default function DashboardPage() {
     .toUpperCase();
 
   return (
-    <div className="space-y-6">
+    <div className="relative -mx-4 -mt-20 min-h-screen overflow-hidden md:-mx-8 md:-mt-8">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-80">
+        <Balatro
+          isRotate={false}
+          mouseInteraction={true}
+          pixelFilter={760}
+          spinSpeed={6.8}
+          spinRotation={-1.9}
+          color1="#C1121F"
+          color2="#9CA3AF"
+          color3="#0B0E13"
+          contrast={3.2}
+          lighting={0.34}
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_12%_8%,rgba(193,18,31,0.26),transparent_48%),radial-gradient(circle_at_88%_2%,rgba(156,163,175,0.16),transparent_40%),linear-gradient(180deg,rgba(5,6,8,0.72),rgba(5,6,8,0.86))]" />
+
+      <div className="relative z-10 mx-auto max-w-6xl space-y-6 px-4 pb-8 pt-20 md:px-8 md:pt-8">
       <header className="panel rounded-2xl p-5">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
@@ -72,6 +90,7 @@ export default function DashboardPage() {
           )}
         </div>
       </section>
+      </div>
     </div>
   );
 }
