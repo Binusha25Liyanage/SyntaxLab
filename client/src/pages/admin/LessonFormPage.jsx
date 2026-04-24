@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { api } from '../../utils/api';
 
@@ -16,7 +16,15 @@ const initial = {
 
 export default function LessonFormPage() {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
   const [form, setForm] = useState(initial);
+
+  useEffect(() => {
+    if (id) return;
+    const courseId = searchParams.get('courseId');
+    if (!courseId) return;
+    setForm((prev) => ({ ...prev, courseId }));
+  }, [id, searchParams]);
 
   useEffect(() => {
     if (!id) return;

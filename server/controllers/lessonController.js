@@ -1,5 +1,6 @@
 const Course = require('../models/Course');
 const Lesson = require('../models/Lesson');
+const Exercise = require('../models/Exercise');
 const User = require('../models/User');
 const asyncHandler = require('../middleware/asyncHandler');
 const { sanitizeLessonContent } = require('../utils/sanitize');
@@ -55,6 +56,7 @@ const deleteLesson = asyncHandler(async (req, res) => {
   }
 
   await Course.findByIdAndUpdate(lesson.courseId, { $pull: { lessons: lesson._id } });
+  await Exercise.deleteMany({ lessonId: lesson._id });
   res.json({ message: 'Lesson deleted successfully' });
 });
 

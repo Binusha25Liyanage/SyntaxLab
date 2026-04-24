@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { api } from '../../utils/api';
 
@@ -19,15 +19,23 @@ const initialForm = {
 
 export default function QuizFormPage() {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [form, setForm] = useState(initialForm);
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
+    if (id) return;
+    const courseId = searchParams.get('courseId');
+    if (!courseId) return;
+    setForm((prev) => ({ ...prev, courseId }));
+  }, [id, searchParams]);
+
+  useEffect(() => {
     const load = async () => {
       try {
         const [coursesRes, quizRes] = await Promise.all([
-          api.get('/courses'),
+          api.get('/courses/admin/all'),
           id ? api.get(`/quizzes/${id}`) : Promise.resolve(null),
         ]);
 

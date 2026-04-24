@@ -1,9 +1,16 @@
 const Course = require('../models/Course');
 const Lesson = require('../models/Lesson');
+const Exercise = require('../models/Exercise');
+const Quiz = require('../models/Quiz');
 const asyncHandler = require('../middleware/asyncHandler');
 
 const getCourses = asyncHandler(async (req, res) => {
   const courses = await Course.find({ isPublished: true }).sort({ order: 1, createdAt: 1 });
+  res.json(courses);
+});
+
+const getAllCoursesAdmin = asyncHandler(async (req, res) => {
+  const courses = await Course.find().sort({ order: 1, createdAt: 1 });
   res.json(courses);
 });
 
@@ -47,12 +54,21 @@ const deleteCourse = asyncHandler(async (req, res) => {
     throw err;
   }
 
-  await Lesson.deleteMany({ courseId: course._id });
+  const lessons = await Lesson.find({ courseId: course._id }).select('_id').lean();
+  const lessonIds = lessons.map((lesson) => lesson._id);
+
+  await Promise.all([
+    Lesson.deleteMany({ courseId: course._id }),
+    Exercise.deleteMany({ lessonId: { $in: lessonIds } }),
+    Quiz.deleteMany({ courseId: course._id }),
+  ]);
+
   res.json({ message: 'Course deleted successfully' });
 });
 
 module.exports = {
   getCourses,
+  getAllCoursesAdmin,
   getCourseBySlug,
   createCourse,
   updateCourse,
