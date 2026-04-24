@@ -25,7 +25,7 @@ export default function AiTutorPage() {
         background: 0x050507,
         shoulderLines: 0x6f737d,
         brokenLines: 0xa5abb7,
-        leftCars: [0xc1121f, 0xe5383b, 0f1faee],
+        leftCars: [0xc1121f, 0xe5383b, 0xf1faee],
         rightCars: [0x8f95a3, 0xced2db, 0x7a818f],
         sticks: 0xc1121f,
       },
@@ -75,7 +75,7 @@ export default function AiTutorPage() {
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_18%_14%,rgba(193,18,31,0.24),transparent_52%),radial-gradient(circle_at_82%_4%,rgba(206,210,219,0.18),transparent_40%),linear-gradient(180deg,rgba(6,6,8,0.62),rgba(6,6,8,0.84))]" />
 
       <div className="relative z-10 space-y-5 p-2 md:p-3">
-      <section className="panel rounded-[12px] border-white/12 bg-[rgba(8,9,12,0.72)] p-6 backdrop-blur-[2px]">
+      <section className="panel rounded-[12px] border-white/10 bg-[rgba(8,9,12,0.72)] p-6 backdrop-blur-[2px]">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">AI tutor</p>
         <h1 className="mt-2 font-display text-[36px] font-bold text-mercury-50">Learning Assistant</h1>
         <p className="mt-2 max-w-2xl text-[15px] leading-7 text-mercury-500">
@@ -83,7 +83,7 @@ export default function AiTutorPage() {
         </p>
       </section>
 
-      <section className="panel rounded-[12px] border-white/12 bg-[rgba(8,9,12,0.72)] p-4 backdrop-blur-[2px] md:p-6">
+      <section className="panel rounded-[12px] border-white/10 bg-[rgba(8,9,12,0.72)] p-4 backdrop-blur-[2px] md:p-6">
         <div className="max-h-[56vh] space-y-3 overflow-y-auto pr-1">
           {messages.map((message, index) => (
             <article
