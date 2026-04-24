@@ -68,13 +68,13 @@ export default function AiTutorPage() {
   };
 
   return (
-    <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[16px]">
+    <div className="relative -mx-4 -mt-20 min-h-screen overflow-hidden md:-mx-8 md:-mt-8">
       <div className="pointer-events-none absolute inset-0 z-0 opacity-70">
         <Hyperspeed effectOptions={effectOptions} />
       </div>
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_18%_14%,rgba(193,18,31,0.24),transparent_52%),radial-gradient(circle_at_82%_4%,rgba(206,210,219,0.18),transparent_40%),linear-gradient(180deg,rgba(6,6,8,0.62),rgba(6,6,8,0.84))]" />
 
-      <div className="relative z-10 space-y-5 p-2 md:p-3">
+      <div className="relative z-10 mx-auto max-w-6xl space-y-5 px-4 pb-8 pt-20 md:px-8 md:pt-8">
       <section className="panel rounded-[12px] border-white/10 bg-[rgba(8,9,12,0.72)] p-6 backdrop-blur-[2px]">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cherry-500">AI tutor</p>
         <h1 className="mt-2 font-display text-[36px] font-bold text-mercury-50">Learning Assistant</h1>
